@@ -1,13 +1,13 @@
-let express = require("express")
-let app = express()
+let express = require("express");
+let app = express();
 
 app.use(function(req, res, next){
-  console.log(`${new Date()}- ${req.method} request for ${req.url}`);
-  next
-})
+    console.log(`${new Date()} - ${req.method} reqest for ${req.url}`);
+    next();
+});
 
-app.use(express.static('../static'))
+app.use(express.static("../static"));
 
 app.listen(8081, function(){
-  console.log("Serving at 8081");
-})
+    console.log("Serving at 8081")
+});
