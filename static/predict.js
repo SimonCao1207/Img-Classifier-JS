@@ -10,7 +10,7 @@ $('#image-selector').change(function(){
   let reader = new FileReader()
   reader.onload = function(){
     let dataURL = reader.result;
-    $("#selected-image").attr("src", dataURL);
+    $("#selected-image").attr('src', dataURL);
     $('#prediction-list').empty();
   }
   let file = $('#image-selector').prop('files')[0]
@@ -34,17 +34,17 @@ async function loadModel(modelName){
 
 
 $("#predict-button").click(async function(){
-  let image = $("selected-image").get(0)
-  console.log(image);
-  // let tensor = tf.browser.fromPixels(image).toFloat()
-  // tensor.print()
-  // let tensor = preprocessImage(image, $("#model-selector").val)
-  // let prediction = await model.predict(tensor).data()
-  // console.log("prediction", prediction);
+  let image = $("#selected-image").get(0)
+  console.log("image". image);
+  let tensor = preprocessImage(image, $("#model-selector").val)
+  let prediction = await model.predict(tensor).data()
+  console.log("prediction", prediction);
 })
 
 function preprocessImage(image, modelName){
   // TODO: Preprocess Image before input into model
-  let tensor = tf.browser.fromPixels(image).toFloat()
+  let tensor = tf.browser.fromPixels(image)
+      .resizeNearestNeighbor([224,224])
+      .toFloat()
   return tensor.expandDims();
 }
