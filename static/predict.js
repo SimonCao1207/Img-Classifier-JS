@@ -19,7 +19,6 @@ $('#image-selector').change(function(){
 
 // Select model
 $("#model-selector").change(function(){
-  console.log("Loading the model: ", $("#model-selector").val())
   loadModel($("#model-selector").val())
   $('.progress-bar').show()
 })
@@ -55,6 +54,9 @@ $("#predict-button").click(async function(){
     $("#prediction-list").empty()
   top5.forEach(function(pred){
     $("#prediction-list").append(`<li>${pred.className}:${pred.probability.toFixed(6)}</li>`)
+
+    //TODO: wip-progress bar for prediction
+    document.getElementById("p1").innerHTML = "New text!";
   })
 })
 
