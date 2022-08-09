@@ -37,6 +37,8 @@ async function loadModel(modelName){
 // TODO: Load pretrained models from https://github.com/tensorflow/tfjs-models
 
 
+const round = (num) => Math.round(num * 100) / 100
+
 $("#predict-button").click(async function(){
   let image = $("#selected-image").get(0)
   console.log("image". image);
@@ -52,11 +54,14 @@ $("#predict-button").click(async function(){
     }).slice(0, 5)
 
     $("#prediction-list").empty()
-  top5.forEach(function(pred){
-    $("#prediction-list").append(`<li>${pred.className}:${pred.probability.toFixed(6)}</li>`)
+  top5.forEach(function(pred, i){
 
-    //TODO: wip-progress bar for prediction
-    document.getElementById("p1").innerHTML = "New text!";
+    $("#prediction-list").append(`
+      <div class="skill-container">
+        <p>${pred.className}</p>
+        <div class="skill p${i+1}" style="width: ${pred.probability*100}%">${round(pred.probability*100)}%</div>
+      </div>
+    `)
   })
 })
 
