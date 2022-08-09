@@ -7,6 +7,7 @@
 .skill-container{
   width: 100%;
   background: #ddd;
+  margin-top: 1rem;
 }
 .skill{
   text-align: right;
@@ -14,23 +15,26 @@
   padding-bottom: 10px;
   color: white;
 }
-.html{
-  width: 90%;
-  background-color: #4CAF50;
-}
-.css{
-  width: 80%;
-  background-color: #2196F3;
-}
-.js{
-  width: 85%;
-  background-color: #F44336;
-}
-.php{
-  width: 80%;
-  background-color: #808080;
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
+.p1{
+  background-color: #4CAF50;
+}
+.p2{
+  background-color: #2196F3;
+}
+.p3{
+  background-color: #F44336;
+}
+.p4{
+  background-color: #808080;
+}
+.p5{
+  background-color: #49259c;
+}
 
 /* @media only screen and (max-width: 760px) {
   .container{
